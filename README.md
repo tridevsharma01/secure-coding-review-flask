@@ -19,3 +19,15 @@ pip install flask
 
 Run the static analyzer against the vulnerable app:
 python simple_security_scanner.py app.py
+
+python simple_security_scanner.py app_fixed.py
+
+Static Analysis Report: app.py
+============================================================
+[    High] SEC-HARDCODED-SECRET line 21   Hardcoded credential/secret (CWE-798)
+[  Medium] SEC-WEAK-HASH        line 45   Weak Hashing Algorithm (CWE-327)
+[Critical] SEC-DESERIAL         line 117  Insecure Deserialization (pickle) (CWE-502)
+[Critical] SEC-CMD-INJ          line 127  Possible OS Command Injection (CWE-78)
+[    High] SEC-DEBUG            line 145  Debug mode enabled in app.run() (CWE-489)
+============================================================
+Total findings: 7  |  Critical: 2  High: 3  Medium: 1  Low: 1
